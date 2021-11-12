@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Characters/TestCharacter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/UI/InputFormatLabel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/UI/Themes/BixTheme/BixTheme.tres" type="Theme" id=4]
+[ext_resource path="res://Scenes/UI/ChangeScene.gd" type="Script" id=6]
+
+[node name="BaseTest" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+theme = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="V" type="VBoxContainer" parent="Control"]
+margin_right = 395.0
+margin_bottom = 115.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InputFormatLabel" parent="Control/V" instance=ExtResource( 3 )]
+margin_right = 395.0
+margin_bottom = 42.0
+text = "Press {pause} to view settings"
+align = 1
+
+[node name="change_scene" type="Button" parent="Control/V"]
+margin_left = 51.0
+margin_top = 46.0
+margin_right = 343.0
+margin_bottom = 115.0
+focus_mode = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Change Scene Button"
+script = ExtResource( 6 )
+next_scene = "res://Scenes/Testing/BaseTest.tscn"
+
+[node name="InputFormatLabel" parent="Control" instance=ExtResource( 3 )]
+margin_top = 119.0
+margin_right = 274.0
+margin_bottom = 194.0
+size_flags_horizontal = 4
+text = "press {up}, {down},
+{left}, {right} to move"
+
+[node name="TestCharacter" parent="." instance=ExtResource( 2 )]
+position = Vector2( 320.131, 271.373 )
