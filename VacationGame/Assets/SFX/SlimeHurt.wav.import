@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SlimeHurt.wav-a0b233b6564259699528217f1c1c01b2.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/SlimeHurt.wav"
+dest_files=[ "res://.import/SlimeHurt.wav-a0b233b6564259699528217f1c1c01b2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

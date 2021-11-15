@@ -1,0 +1,81 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scenes/Environment/BallTiles.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Environment/WaterHazard.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Environment/WaterTiles.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Environment/Grass.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Objects/Flag.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Objects/Ball.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/UI/Gameplay/HUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Environment/FollowPlayer.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Levels/BaseLevel.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Environment/TiledBackground.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/SFX/Holed.wav" type="AudioStream" id=11]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+glow_enabled = true
+
+[node name="BaseLevel" type="Node2D"]
+script = ExtResource( 9 )
+win_screen = "res://Scenes/UI/WinScreen.tscn"
+
+[node name="TiledBackground" parent="." instance=ExtResource( 10 )]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -128
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.141176, 0.321569, 0.231373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="HUD" parent="." instance=ExtResource( 7 )]
+
+[node name="NextLevelTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="FollowPlayer" parent="." instance=ExtResource( 8 )]
+
+[node name="BallTiles" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( -458764, 0, 8, -458763, 0, 11, -393228, 0, 65544, -393227, 0, 131083, -327694, 0, 8, -327693, 0, 10, -327692, 0, 65541, -327691, 0, 131083, -262158, 0, 196616, -262157, 0, 196617, -262156, 0, 196617, -262155, 0, 196619 )
+
+[node name="WaterHazard" parent="." instance=ExtResource( 2 )]
+
+[node name="WaterTiles" parent="WaterHazard" instance=ExtResource( 3 )]
+
+[node name="Grass" parent="." instance=ExtResource( 4 )]
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Ball" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( -240, -192 )
+
+[node name="Flag" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 192, -192 )
+
+[node name="StartPos" type="Position2D" parent="."]
+position = Vector2( -144, -168 )
+
+[node name="HoledSFX" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 11 )
+volume_db = 10.0
+pitch_scale = 1.2
+bus = "SFX"
+
+[connection signal="timeout" from="DeathTimer" to="." method="spawn_player" flags=3]
+[connection signal="timeout" from="NextLevelTimer" to="." method="_on_NextLevelTimer_timeout"]
+[connection signal="reset_level" from="YSort/Ball" to="." method="_on_unwinnable"]
+[connection signal="level_complete" from="YSort/Flag" to="." method="_on_Flag_level_complete"]

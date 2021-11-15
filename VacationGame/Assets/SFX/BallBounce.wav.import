@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/BallBounce.wav-5c237c6635d4a12162eb5d987b706ad0.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/BallBounce.wav"
+dest_files=[ "res://.import/BallBounce.wav-5c237c6635d4a12162eb5d987b706ad0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

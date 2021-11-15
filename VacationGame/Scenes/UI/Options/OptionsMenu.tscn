@@ -130,6 +130,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Main Menu"
 script = ExtResource( 7 )
+next_scene = "res://Scenes/UI/MainMenu.tscn"
 
 [node name="Back" type="Button" parent="M/TabContainer/OptionSelect/M/V/V2"]
 margin_left = 246.0

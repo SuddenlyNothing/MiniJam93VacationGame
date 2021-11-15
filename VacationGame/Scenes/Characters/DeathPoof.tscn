@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Characters/DeathPoof-Sheet.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Characters/DeathPoof.gd" type="Script" id=2]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id=3]
+max_value = 1024.0
+_data = [ Vector2( 0, 0 ), 0.0, 3263.81, 0, 0, Vector2( 1, 0 ), -5100.09, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="DeathPoof" type="CPUParticles2D"]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
+material = SubResource( 1 )
+z_index = 100
+emitting = false
+amount = 64
+one_shot = true
+explosiveness = 0.8
+randomness = 1.0
+lifetime_randomness = 1.0
+texture = ExtResource( 1 )
+emission_shape = 2
+emission_rect_extents = Vector2( 10, 25 )
+spread = 5.0
+gravity = Vector2( 0, -1000 )
+initial_velocity = 500.0
+damping_random = 0.5
+damping_curve = SubResource( 3 )
+color_ramp = SubResource( 2 )
+anim_speed = 2.0
+script = ExtResource( 2 )
+
+[node name="FreeTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="FreeTimer" to="." method="queue_free"]

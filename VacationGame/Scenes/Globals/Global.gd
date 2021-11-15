@@ -12,21 +12,22 @@ func _ready() -> void:
 
 # Goes to scene with a fade out fade in transition.
 # Pauses the game during transition.
-func goto_scene(path : String) -> void:
+func goto_scene(path : String, args : Dictionary = {}) -> void:
+	MusicPlayer.lower_volume()
 	get_tree().paused = true
 	previous_scene = current_scene.filename
 	transition.fade_out()
 	yield(transition, "faded_out")
-	call_deferred("_deferred_goto_scene",path)
+	call_deferred("_deferred_goto_scene", path, args)
 
 # Called by goto_scene to handle freeing the current scene.
-func _deferred_goto_scene(path : String) -> void:
+func _deferred_goto_scene(path : String, args : Dictionary = {}) -> void:
 	# Immediately free the current scene,
 	# there is no risk here.
 	current_scene.free()
 
 	# Load new scene
-	var s = ResourceLoader.load(path)
+	var s = load(path)
 
 	# Instance the new scene
 	current_scene = s.instance()
@@ -37,8 +38,13 @@ func _deferred_goto_scene(path : String) -> void:
 	# optional, to make it compatible with the SceneTree.change_scene() API
 	get_tree().set_current_scene( current_scene )
 	
+	# init scene with args
+	if not args.empty():
+		current_scene.init(args)
+	
 	transition.fade_in()
 	get_tree().paused = false
+	MusicPlayer.increase_volume()
 
 # Exits and returns to current scene.
 func restart_scene() -> void:

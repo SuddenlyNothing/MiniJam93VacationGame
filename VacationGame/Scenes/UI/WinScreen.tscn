@@ -1,0 +1,107 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/UI/WinScreen.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/UI/ChangeScene.gd" type="Script" id=2]
+[ext_resource path="res://Assets/UI/Fonts/ThemeFontPixel.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/UI/Fonts/dpcomic.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/Environment/Background.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+use_mipmaps = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+use_mipmaps = true
+font_data = ExtResource( 4 )
+
+[node name="WinScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+credits = "res://Scenes/UI/Credits.tscn"
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 5 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1024, 600 )
+
+[node name="V" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="V" type="VBoxContainer" parent="V"]
+margin_top = 88.0
+margin_right = 1024.0
+margin_bottom = 210.0
+size_flags_vertical = 6
+
+[node name="CurrentLevel" type="Label" parent="V/V"]
+margin_left = 429.0
+margin_right = 595.0
+margin_bottom = 59.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 1 )
+text = "Level 0"
+
+[node name="Shots" type="Label" parent="V/V"]
+margin_left = 415.0
+margin_top = 63.0
+margin_right = 608.0
+margin_bottom = 122.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 2 )
+text = "Shots: 0"
+
+[node name="V2" type="VBoxContainer" parent="V"]
+margin_top = 302.0
+margin_right = 1024.0
+margin_bottom = 418.0
+size_flags_vertical = 2
+
+[node name="NextLevel" type="Button" parent="V/V2"]
+margin_left = 444.0
+margin_right = 579.0
+margin_bottom = 36.0
+focus_mode = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+text = "Next Level"
+flat = true
+script = ExtResource( 2 )
+
+[node name="Retry" type="Button" parent="V/V2"]
+margin_left = 474.0
+margin_top = 40.0
+margin_right = 550.0
+margin_bottom = 76.0
+focus_mode = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+text = "Retry"
+flat = true
+script = ExtResource( 2 )
+
+[node name="Menu" type="Button" parent="V/V2"]
+margin_left = 476.0
+margin_top = 80.0
+margin_right = 547.0
+margin_bottom = 116.0
+focus_mode = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+text = "Menu"
+flat = true
+script = ExtResource( 2 )
+next_scene = "res://Scenes/UI/MainMenu.tscn"

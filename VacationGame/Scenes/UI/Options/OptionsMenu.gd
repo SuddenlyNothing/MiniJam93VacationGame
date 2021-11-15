@@ -36,6 +36,10 @@ func _on_Back_pressed():
 
 # Sets the active of the option menu.
 func set_active(val) -> void:
+	if val:
+		MusicPlayer.lower_volume()
+	else:
+		MusicPlayer.increase_volume()
 	tab_container.current_tab = 0
 	active = val
 	$M.visible = val

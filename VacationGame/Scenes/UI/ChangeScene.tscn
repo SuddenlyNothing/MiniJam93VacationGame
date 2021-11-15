@@ -5,9 +5,11 @@
 [node name="ChangeScene" type="Button"]
 margin_right = 12.0
 margin_bottom = 20.0
+focus_mode = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+flat = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[connection signal="pressed" from="." to="." method="_on_ChangeScene_pressed"]

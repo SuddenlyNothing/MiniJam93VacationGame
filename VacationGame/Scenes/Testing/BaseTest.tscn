@@ -1,52 +1,64 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Scenes/Characters/TestCharacter.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/UI/InputFormatLabel.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/UI/Themes/BixTheme/BixTheme.tres" type="Theme" id=4]
-[ext_resource path="res://Scenes/UI/ChangeScene.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Objects/Flag.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Objects/Ball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Testing/BaseTest.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Environment/Grass.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Environment/WaterTiles.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Environment/WaterHazard.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Environment/FollowPlayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/UI/Gameplay/HUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Environment/BallTiles.tscn" type="PackedScene" id=9]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+glow_enabled = true
 
 [node name="BaseTest" type="Node2D"]
+script = ExtResource( 3 )
 
-[node name="Control" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-theme = ExtResource( 4 )
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="BallTiles" parent="." instance=ExtResource( 9 )]
+tile_data = PoolIntArray( -589812, 0, 8, -589811, 0, 10, -589810, 0, 10, -589809, 0, 10, -589808, 0, 10, -589807, 0, 10, -589806, 0, 10, -589805, 0, 10, -589804, 0, 11, -524276, 0, 65544, -524275, 0, 131081, -524274, 0, 131081, -524273, 0, 131078, -524272, 0, 196617, -524271, 0, 196617, -524270, 0, 196617, -524269, 0, 196617, -524268, 0, 196619, -458742, 0, 8, -458741, 0, 10, -458740, 0, 65545, -458739, 0, 196617, -458738, 0, 131077, -458737, 0, 131083, -327685, 0, 8, -327684, 0, 10, -327683, 0, 10, -327682, 0, 11, -393206, 0, 65544, -393205, 0, 131081, -393204, 0, 131083, -393202, 0, 65544, -393201, 0, 131083, -262149, 0, 65544, -262148, 0, 131081, -262147, 0, 131081, -262146, 0, 65542, -262145, 0, 10, -327680, 0, 10, -327679, 0, 10, -327678, 0, 10, -327677, 0, 10, -327676, 0, 11, -327670, 0, 65544, -327669, 0, 131081, -327668, 0, 65542, -327667, 0, 10, -327666, 0, 65545, -327665, 0, 196619, -196613, 0, 65544, -196612, 0, 131081, -196611, 0, 131081, -196610, 0, 131078, -196609, 0, 196617, -262144, 0, 196617, -262143, 0, 196617, -262142, 0, 196617, -262141, 0, 196617, -262140, 0, 196619, -262134, 0, 65544, -262133, 0, 131081, -262132, 0, 131081, -262131, 0, 131081, -262130, 0, 131083, -131077, 0, 196616, -131076, 0, 196617, -131075, 0, 196617, -131074, 0, 196619, -196598, 0, 196616, -196597, 0, 196617, -196596, 0, 196617, -196595, 0, 196617, -196594, 0, 196619 )
+
+[node name="WaterHazard" parent="." instance=ExtResource( 6 )]
+
+[node name="WaterTiles" parent="WaterHazard" instance=ExtResource( 5 )]
+tile_data = PoolIntArray( -393215, 1, 1, -393214, 1, 2, -393213, 1, 2, -393212, 1, 2, -393211, 1, 5, -393210, 1, 11, -327675, 1, 131080, -327674, 1, 65547, -262139, 1, 131080, -262138, 1, 65547, -196607, 1, 1, -196606, 1, 5, -196605, 1, 9, -196604, 1, 9, -196603, 1, 65541, -196602, 1, 65547, -131070, 1, 196616, -131069, 1, 131077, -131068, 1, 65545, -131067, 1, 131078, -131066, 1, 196619, -65533, 1, 196616, -65532, 1, 196618, -65531, 1, 196619 )
+
+[node name="Grass" parent="." instance=ExtResource( 4 )]
+tile_data = PoolIntArray( -589832, 0, 8, -589831, 0, 10, -589830, 0, 10, -589829, 0, 10, -589828, 0, 10, -589827, 0, 10, -589826, 0, 10, -589825, 0, 10, -655360, 0, 10, -655359, 0, 10, -655358, 0, 10, -655357, 0, 11, -524296, 0, 196616, -524295, 0, 196617, -524294, 0, 196617, -524293, 0, 196617, -524292, 0, 131077, -524291, 0, 131081, -524290, 0, 131081, -524289, 0, 131081, -589824, 0, 131081, -589823, 0, 131081, -589822, 0, 131081, -589821, 0, 65542, -589820, 0, 11, -458756, 0, 65544, -458755, 0, 131081, -458754, 0, 131081, -458753, 0, 131081, -524288, 0, 131081, -524287, 0, 131081, -524286, 0, 131081, -524285, 0, 131081, -524284, 0, 131083, -393220, 0, 196616, -393219, 0, 196617, -393218, 0, 196617, -393217, 0, 196617, -458752, 0, 196617, -458751, 0, 196617, -458750, 0, 196617, -458749, 0, 196617, -458748, 0, 196614, -458747, 0, 196611, 65526, 0, 8, 65527, 0, 10, 65528, 0, 10, 65529, 0, 10, 65530, 0, 10, 65531, 0, 10, 65532, 0, 10, 65533, 0, 10, 65534, 0, 10, 65535, 0, 10, 0, 0, 10, 1, 0, 10, 2, 0, 10, 3, 0, 10, 4, 0, 6, 5, 0, 196611, 131062, 0, 65544, 131063, 0, 131081, 131064, 0, 131081, 131065, 0, 131081, 131066, 0, 131081, 131067, 0, 131081, 131068, 0, 131081, 131069, 0, 131081, 131070, 0, 131081, 131071, 0, 131081, 65536, 0, 131081, 65537, 0, 131081, 65538, 0, 131081, 65539, 0, 131081, 65540, 0, 131083, 196598, 0, 65544, 196599, 0, 131081, 196600, 0, 131081, 196601, 0, 131081, 196602, 0, 131081, 196603, 0, 131081, 196604, 0, 131081, 196605, 0, 131081, 196606, 0, 131081, 196607, 0, 131081, 131072, 0, 131081, 131073, 0, 131081, 131074, 0, 131081, 131075, 0, 131081, 131076, 0, 131083, 262134, 0, 196616, 262135, 0, 196617, 262136, 0, 196617, 262137, 0, 196617, 262138, 0, 196617, 262139, 0, 196617, 262140, 0, 131077, 262141, 0, 131081, 262142, 0, 131081, 262143, 0, 131081, 196608, 0, 131081, 196609, 0, 131081, 196610, 0, 131081, 196611, 0, 131081, 196612, 0, 131083, 327676, 0, 196616, 327677, 0, 196617, 327678, 0, 196617, 327679, 0, 196617, 262144, 0, 196617, 262145, 0, 196617, 262146, 0, 196617, 262147, 0, 196617, 262148, 0, 196619 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Ball" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -192, -192 )
+
+[node name="Flag" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 192, -192 )
+
+[node name="FollowPlayer" parent="." instance=ExtResource( 7 )]
+zoom = Vector2( 1.2, 1.2 )
+
+[node name="DeathTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="StartPos" type="Position2D" parent="."]
+position = Vector2( -264, -192 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -128
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.34902, 0.756863, 0.207843, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="V" type="VBoxContainer" parent="Control"]
-margin_right = 395.0
-margin_bottom = 115.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="HUD" parent="." instance=ExtResource( 8 )]
 
-[node name="InputFormatLabel" parent="Control/V" instance=ExtResource( 3 )]
-margin_right = 395.0
-margin_bottom = 42.0
-text = "Press {pause} to view settings"
-align = 1
-
-[node name="change_scene" type="Button" parent="Control/V"]
-margin_left = 51.0
-margin_top = 46.0
-margin_right = 343.0
-margin_bottom = 115.0
-focus_mode = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Change Scene Button"
-script = ExtResource( 6 )
-next_scene = "res://Scenes/Testing/BaseTest.tscn"
-
-[node name="InputFormatLabel" parent="Control" instance=ExtResource( 3 )]
-margin_top = 119.0
-margin_right = 274.0
-margin_bottom = 194.0
-size_flags_horizontal = 4
-text = "press {up}, {down},
-{left}, {right} to move"
-
-[node name="TestCharacter" parent="." instance=ExtResource( 2 )]
-position = Vector2( 320.131, 271.373 )
+[connection signal="timeout" from="DeathTimer" to="." method="spawn_player"]
