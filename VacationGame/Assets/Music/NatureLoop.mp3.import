@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/NatureLoop.mp3-aa69142c078b0c14d725a10f0fc3d5c7.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/NatureLoop.mp3"
+dest_files=[ "res://.import/NatureLoop.mp3-aa69142c078b0c14d725a10f0fc3d5c7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

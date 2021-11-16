@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Assets/Music/WaterLoop.wav" type="AudioStream" id=1]
-[ext_resource path="res://Assets/Music/NatureLoop.wav" type="AudioStream" id=2]
-[ext_resource path="res://Assets/Music/AmbientMusic.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Music/AmbientMusic.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Assets/Music/NatureLoop.mp3" type="AudioStream" id=2]
+[ext_resource path="res://Assets/Music/WaterLoop.mp3" type="AudioStream" id=3]
 [ext_resource path="res://Scenes/Globals/MusicPlayer.gd" type="Script" id=4]
-[ext_resource path="res://Assets/Music/MenuMusic.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Music/MenuMusic.mp3" type="AudioStream" id=5]
 
 [node name="MusicPlayer" type="Node"]
 pause_mode = 2
@@ -12,7 +12,7 @@ script = ExtResource( 4 )
 
 [node name="AmbientMusic" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
-stream = ExtResource( 3 )
+stream = ExtResource( 1 )
 bus = "Music"
 
 [node name="NatureLoop" type="AudioStreamPlayer" parent="."]
@@ -23,7 +23,7 @@ bus = "Music"
 
 [node name="WaterLoop" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
-stream = ExtResource( 1 )
+stream = ExtResource( 3 )
 volume_db = 5.0
 bus = "Music"
 

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/WaterLoop.mp3-b0a4408770e610ab80d2c2bdfe109b8c.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/WaterLoop.mp3"
+dest_files=[ "res://.import/WaterLoop.mp3-b0a4408770e610ab80d2c2bdfe109b8c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
