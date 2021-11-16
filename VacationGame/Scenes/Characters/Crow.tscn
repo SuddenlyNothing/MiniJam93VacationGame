@@ -80,7 +80,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=14]
-extents = Vector2( 4, 12 )
+extents = Vector2( 4, 4 )
 
 [node name="Crow" groups=["needs_ball"] instance=ExtResource( 1 )]
 collision_mask = 0
@@ -92,6 +92,7 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" parent="Flip" index="0"]
 material = SubResource( 2 )
 frames = SubResource( 3 )
+animation = "chase"
 offset = Vector2( 0, -38 )
 
 [node name="CollisionShape2D" parent="." index="2"]
@@ -107,7 +108,6 @@ collision_mask = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-rotation = 1.5708
 shape = SubResource( 14 )
 
 [node name="Line2D" type="Line2D" parent="." index="8"]

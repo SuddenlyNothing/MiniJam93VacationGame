@@ -3,7 +3,7 @@ extends Enemy
 onready var chase_sfx := $ChaseSFX
 onready var hurt_sfx := $HurtSFX
 
-var max_speed : float = 150.0
+var max_speed : float = 100.0
 var steering : float = 5.0
 
 
