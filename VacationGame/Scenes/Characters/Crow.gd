@@ -31,6 +31,8 @@ func set_velocity(delta : float) -> void:
 func _on_Hitbox_body_entered(body):
 	if body != target:
 		return
+	if body.velocity.length() >= 100:
+		return
 	hitbox_collision.call_deferred("set_disabled", true)
 	vision_collision.call_deferred("set_disabled", true)
 	body.destroy()

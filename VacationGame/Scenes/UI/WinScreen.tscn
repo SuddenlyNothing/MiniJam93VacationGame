@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/UI/WinScreen.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UI/ChangeScene.gd" type="Script" id=2]
 [ext_resource path="res://Assets/UI/Fonts/ThemeFontPixel.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Assets/UI/Fonts/dpcomic.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Assets/Environment/Background.png" type="Texture" id=5]
+[ext_resource path="res://Assets/SFX/win.wav" type="AudioStream" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -67,15 +68,15 @@ margin_right = 1024.0
 margin_bottom = 418.0
 size_flags_vertical = 2
 
-[node name="NextLevel" type="Button" parent="V/V2"]
-margin_left = 444.0
-margin_right = 579.0
+[node name="NextHole" type="Button" parent="V/V2"]
+margin_left = 449.0
+margin_right = 574.0
 margin_bottom = 36.0
 focus_mode = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 3 )
-text = "Next Level"
+text = "Next Hole"
 flat = true
 script = ExtResource( 2 )
 
@@ -105,3 +106,20 @@ text = "Menu"
 flat = true
 script = ExtResource( 2 )
 next_scene = "res://Scenes/UI/MainMenu.tscn"
+
+[node name="WinSong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = 10.0
+autoplay = true
+bus = "Music"
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+visible = true
+margin_right = 400.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 400, 140 )
+window_title = ""
+dialog_text = "This Will Erase Your Scores!"
+
+[connection signal="finished" from="WinSong" to="WinSong" method="queue_free"]
+[connection signal="tree_exited" from="WinSong" to="." method="_on_WinSong_tree_exited"]

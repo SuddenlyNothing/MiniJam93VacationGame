@@ -10,4 +10,5 @@ func _process(delta : float) -> void:
 
 
 func set_player(p) -> void:
+	position = p.position
 	player = p

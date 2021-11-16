@@ -2,6 +2,7 @@ extends CanvasLayer
 
 onready var tab_container := $M/TabContainer
 onready var mouse_capture := $MouseCapture
+onready var press_sfx := $PressSFX
 
 var active = false setget set_active
 
@@ -11,6 +12,7 @@ func _input(event):
 		if event.is_pressed():
 			for i in InputMap.get_action_list("pause"):
 				if event.scancode == i.scancode:
+					press_sfx.play()
 					self.active = not active
 					break
 

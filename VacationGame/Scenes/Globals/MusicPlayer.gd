@@ -32,12 +32,12 @@ func stop_all() -> void:
 func lower_volume() -> void:
 	if num_lowers == 0:
 		for child in get_children():
-			child.volume_db -= 10
+			child.volume_db -= 5
 	num_lowers += 1
 
 
 func increase_volume() -> void:
 	if num_lowers == 1:
 		for child in get_children():
-			child.volume_db += 10
+			child.volume_db += 5
 	num_lowers -= 1
