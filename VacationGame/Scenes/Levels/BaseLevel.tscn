@@ -49,7 +49,6 @@ one_shot = true
 [node name="FollowPlayer" parent="." instance=ExtResource( 8 )]
 
 [node name="BallTiles" parent="." instance=ExtResource( 1 )]
-tile_data = PoolIntArray( -458764, 0, 8, -458763, 0, 11, -393228, 0, 65544, -393227, 0, 131083, -327694, 0, 8, -327693, 0, 10, -327692, 0, 65541, -327691, 0, 131083, -262158, 0, 196616, -262157, 0, 196617, -262156, 0, 196617, -262155, 0, 196619 )
 
 [node name="WaterHazard" parent="." instance=ExtResource( 2 )]
 

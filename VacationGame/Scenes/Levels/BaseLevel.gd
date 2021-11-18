@@ -24,9 +24,9 @@ func _ready() -> void:
 	get_tree().call_group("needs_ball", "set_ball", ball)
 
 
-func _process(delta : float) -> void:
-	if Input.is_action_just_pressed("restart"):
-		call_deferred("spawn_player")
+#func _process(delta : float) -> void:
+#	if Input.is_action_just_pressed("restart"):
+#		call_deferred("spawn_player")
 
 
 func _on_unwinnable() -> void:
@@ -46,7 +46,7 @@ func spawn_player():
 	player.position = start_pos
 	player.hide()
 	player.ball = ball
-	hud.reset_shots()
+#	hud.reset_shots()
 	player.connect("shot", hud, "add_shot")
 	player_parent.call_deferred("add_child", player)
 	get_tree().call_group("needs_player", "set_player", player)
@@ -56,12 +56,8 @@ func spawn_player():
 
 
 func _on_NextLevelTimer_timeout():
-	Global.goto_scene(win_screen, {
-		"current_level_number": level_number,
-		"shots": hud.total_shots,
-		"next_level": next_level,
-		"current_level": filename
-	})
+	Variables.set_current_level_score(hud.total_shots)
+	Global.goto_scene(win_screen)
 
 
 func _on_Flag_level_complete():

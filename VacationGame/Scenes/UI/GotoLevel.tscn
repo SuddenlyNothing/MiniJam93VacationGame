@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/UI/GotoLevel.gd" type="Script" id=1]
+
+[node name="GotoLevel" type="Button"]
+margin_right = 112.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 112, 64 )
+focus_mode = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.392157, 0.392157, 0.392157, 1 )
+custom_colors/font_color_pressed = Color( 0.254902, 0.254902, 0.254902, 1 )
+text = "Level 1"
+flat = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}

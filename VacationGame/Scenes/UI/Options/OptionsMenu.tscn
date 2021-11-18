@@ -6,13 +6,14 @@
 [ext_resource path="res://Scenes/UI/Options/ScreenSettings/ScreenSettings.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/UI/Themes/BixTheme/BixTheme.tres" type="Theme" id=5]
 [ext_resource path="res://Scenes/UI/ButtonSFX.gd" type="Script" id=6]
-[ext_resource path="res://Scenes/UI/ChangeScene.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/UI/ChangeConfirm.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/SFX/OptionsSelect.mp3" type="AudioStream" id=8]
 
 [node name="OptionsMenu" type="CanvasLayer"]
 pause_mode = 2
 layer = 64
 script = ExtResource( 2 )
+menu_scene = "res://Scenes/UI/MainMenu.tscn"
 
 [node name="MouseCapture" type="ColorRect" parent="."]
 visible = false
@@ -123,15 +124,12 @@ size_flags_stretch_ratio = 2.0
 custom_constants/separation = 10
 alignment = 1
 
-[node name="Menu" type="Button" parent="M/TabContainer/OptionSelect/M/V/V2"]
+[node name="Menu" parent="M/TabContainer/OptionSelect/M/V/V2" instance=ExtResource( 7 )]
 margin_left = 215.0
 margin_right = 373.0
 margin_bottom = 69.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
 text = "Main Menu"
-script = ExtResource( 7 )
-next_scene = "res://Scenes/UI/MainMenu.tscn"
+flat = false
 
 [node name="Back" type="Button" parent="M/TabContainer/OptionSelect/M/V/V2"]
 margin_left = 246.0
@@ -225,7 +223,7 @@ bus = "SFX"
 [connection signal="pressed" from="M/TabContainer/OptionSelect/M/V/V/Audio" to="." method="_on_Audio_pressed"]
 [connection signal="pressed" from="M/TabContainer/OptionSelect/M/V/V/Controls" to="." method="_on_Controls_pressed"]
 [connection signal="pressed" from="M/TabContainer/OptionSelect/M/V/V/ScreenSettings" to="." method="_on_ScreenSettings_pressed"]
-[connection signal="pressed" from="M/TabContainer/OptionSelect/M/V/V2/Menu" to="." method="_on_Menu_pressed"]
+[connection signal="confirmed" from="M/TabContainer/OptionSelect/M/V/V2/Menu" to="." method="_on_Menu_confirmed"]
 [connection signal="pressed" from="M/TabContainer/OptionSelect/M/V/V2/Back" to="." method="_on_Back_pressed"]
 [connection signal="pressed" from="M/TabContainer/ChangeVolume/M/ChangeVolume/V/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="M/TabContainer/InputRemap/M/InputRemap/V/Button" to="." method="_on_Button_pressed"]

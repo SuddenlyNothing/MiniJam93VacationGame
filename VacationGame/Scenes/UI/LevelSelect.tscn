@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Environment/BallTiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Environment/WaterTiles.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/Environment/Grass.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Objects/Flag.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/UI/ChangeScene.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/UI/GotoLevel.tscn" type="PackedScene" id=8]
 
 [node name="LevelSelect" type="Control"]
 anchor_right = 1.0
@@ -37,119 +38,78 @@ tile_data = PoolIntArray( 131074, 0, 8, 131075, 0, 10, 131076, 0, 6, 131077, 0, 
 [node name="Flag" parent="." instance=ExtResource( 6 )]
 position = Vector2( 672, 480 )
 
-[node name="ChangeScene" parent="." instance=ExtResource( 7 )]
+[node name="GotoLevel" parent="." instance=ExtResource( 8 )]
 margin_left = 112.0
 margin_top = 112.0
 margin_right = 224.0
 margin_bottom = 176.0
-rect_min_size = Vector2( 64, 64 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0.392157, 0.392157, 0.392157, 1 )
-custom_colors/font_color_pressed = Color( 0.254902, 0.254902, 0.254902, 1 )
-text = "Level 1"
-next_scene = "res://Scenes/Levels/L1.tscn"
+course_name = "easy_course"
+level_number = 1
 
-[node name="ChangeScene2" parent="." instance=ExtResource( 7 )]
+[node name="GotoLevel2" parent="." instance=ExtResource( 8 )]
 margin_left = 304.0
 margin_top = 112.0
 margin_right = 416.0
 margin_bottom = 176.0
-rect_min_size = Vector2( 64, 64 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0.392157, 0.392157, 0.392157, 1 )
-custom_colors/font_color_pressed = Color( 0.254902, 0.254902, 0.254902, 1 )
 text = "Level 2"
-next_scene = "res://Scenes/Levels/L2.tscn"
+course_name = "easy_course"
+level_number = 2
 
-[node name="ChangeScene3" parent="." instance=ExtResource( 7 )]
+[node name="GotoLevel3" parent="." instance=ExtResource( 8 )]
 margin_left = 256.0
 margin_top = 256.0
 margin_right = 368.0
 margin_bottom = 320.0
-rect_min_size = Vector2( 64, 64 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0.392157, 0.392157, 0.392157, 1 )
-custom_colors/font_color_pressed = Color( 0.254902, 0.254902, 0.254902, 1 )
 text = "Level 3"
-next_scene = "res://Scenes/Levels/L3.tscn"
+course_name = "easy_course"
+level_number = 3
 
-[node name="ChangeScene4" parent="." instance=ExtResource( 7 )]
+[node name="GotoLevel4" parent="." instance=ExtResource( 8 )]
 margin_left = 352.0
 margin_top = 400.0
 margin_right = 464.0
 margin_bottom = 464.0
-rect_min_size = Vector2( 64, 64 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0.392157, 0.392157, 0.392157, 1 )
-custom_colors/font_color_pressed = Color( 0.254902, 0.254902, 0.254902, 1 )
 text = "Level 4"
-next_scene = "res://Scenes/Levels/L4.tscn"
+course_name = "easy_course"
+level_number = 4
 
-[node name="ChangeScene5" parent="." instance=ExtResource( 7 )]
+[node name="GotoLevel5" parent="." instance=ExtResource( 8 )]
 margin_left = 544.0
 margin_top = 304.0
 margin_right = 656.0
 margin_bottom = 368.0
-rect_min_size = Vector2( 64, 64 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0.392157, 0.392157, 0.392157, 1 )
-custom_colors/font_color_pressed = Color( 0.254902, 0.254902, 0.254902, 1 )
 text = "Level 5"
-next_scene = "res://Scenes/Levels/L5.tscn"
+course_name = "easy_course"
+level_number = 5
 
-[node name="ChangeScene6" parent="." instance=ExtResource( 7 )]
+[node name="GotoLevel6" parent="." instance=ExtResource( 8 )]
 margin_left = 592.0
 margin_top = 160.0
 margin_right = 704.0
 margin_bottom = 224.0
-rect_min_size = Vector2( 64, 64 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0.392157, 0.392157, 0.392157, 1 )
-custom_colors/font_color_pressed = Color( 0.254902, 0.254902, 0.254902, 1 )
 text = "Level 6"
-next_scene = "res://Scenes/Levels/L6.tscn"
+course_name = "easy_course"
+level_number = 6
 
-[node name="ChangeScene7" parent="." instance=ExtResource( 7 )]
+[node name="GotoLevel7" parent="." instance=ExtResource( 8 )]
 margin_left = 736.0
 margin_top = 256.0
 margin_right = 848.0
 margin_bottom = 320.0
-rect_min_size = Vector2( 64, 64 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0.392157, 0.392157, 0.392157, 1 )
-custom_colors/font_color_pressed = Color( 0.254902, 0.254902, 0.254902, 1 )
 text = "Level 7"
-next_scene = "res://Scenes/Levels/L7.tscn"
+course_name = "easy_course"
+level_number = 7
 
-[node name="ChangeScene8" parent="." instance=ExtResource( 7 )]
+[node name="GotoLevel8" parent="." instance=ExtResource( 8 )]
 margin_left = 736.0
 margin_top = 400.0
 margin_right = 848.0
 margin_bottom = 464.0
-rect_min_size = Vector2( 64, 64 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0.392157, 0.392157, 0.392157, 1 )
-custom_colors/font_color_pressed = Color( 0.254902, 0.254902, 0.254902, 1 )
 text = "Level 8"
-next_scene = "res://Scenes/Levels/L8.tscn"
+course_name = "easy_course"
+level_number = 8
 
-[node name="ChangeScene9" parent="." instance=ExtResource( 7 )]
+[node name="Back" parent="." instance=ExtResource( 7 )]
 margin_left = 64.0
 margin_top = 352.0
 margin_right = 176.0

@@ -1,10 +1,18 @@
 extends CanvasLayer
 
+export(String, FILE, "*.tscn") var menu_scene
+
 onready var tab_container := $M/TabContainer
 onready var mouse_capture := $MouseCapture
 onready var press_sfx := $PressSFX
-
+onready var menu_button := $M/TabContainer/OptionSelect/M/V/V2/Menu
 var active = false setget set_active
+
+var not_level_scenes := {
+	"res://Scenes/UI/MainMenu.tscn" : 0,
+	"res://Scenes/UI/Credits.tscn" : 0,
+	"res://Scenes/UI/LevelSelect.tscn" : 0,
+}
 
 # Toggles option menu on "pause" press
 func _input(event):
@@ -38,6 +46,11 @@ func _on_Back_pressed():
 
 # Sets the active of the option menu.
 func set_active(val) -> void:
+	if val:
+		if Global.current_scene.filename in not_level_scenes:
+			menu_button.hide()
+	else:
+		menu_button.show()
 	tab_container.current_tab = 0
 	active = val
 	$M.visible = val
@@ -45,5 +58,6 @@ func set_active(val) -> void:
 	get_tree().paused = val
 
 # Closes option menu.
-func _on_Menu_pressed():
+func _on_Menu_confirmed():
+	Global.goto_scene(menu_scene)
 	set_active(false)

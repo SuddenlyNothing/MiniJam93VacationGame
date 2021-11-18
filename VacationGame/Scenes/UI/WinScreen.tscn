@@ -1,21 +1,16 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/UI/WinScreen.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/UI/ChangeScene.gd" type="Script" id=2]
-[ext_resource path="res://Assets/UI/Fonts/ThemeFontPixel.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Assets/UI/Fonts/dpcomic.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Scenes/UI/ButtonSFX.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/UI/ChangeScene.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Environment/WaterHazard.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Environment/Background.png" type="Texture" id=5]
 [ext_resource path="res://Assets/SFX/win.wav" type="AudioStream" id=6]
-
-[sub_resource type="DynamicFont" id=1]
-size = 64
-use_mipmaps = true
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 64
-use_mipmaps = true
-font_data = ExtResource( 4 )
+[ext_resource path="res://Scenes/UI/ChangeConfirm.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/UI/Scorecard/Scorecard.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Environment/WaterTiles.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Environment/Grass.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Environment/BallTiles.tscn" type="PackedScene" id=11]
 
 [node name="WinScreen" type="Control"]
 anchor_right = 1.0
@@ -24,88 +19,97 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-credits = "res://Scenes/UI/Credits.tscn"
+main_menu = "res://Scenes/UI/MainMenu.tscn"
 
-[node name="Background" type="Sprite" parent="."]
+[node name="Background2" type="Sprite" parent="."]
+z_index = -692
 texture = ExtResource( 5 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 1024, 600 )
 
-[node name="V" type="VBoxContainer" parent="."]
+[node name="WaterHazard" parent="." instance=ExtResource( 4 )]
+
+[node name="WaterTiles" parent="WaterHazard" instance=ExtResource( 9 )]
+position = Vector2( 6.5, 4 )
+tile_data = PoolIntArray( -1, 1, 8, -65536, 1, 9, -65535, 1, 9, -65534, 1, 9, -65533, 1, 9, -65532, 1, 9, -65531, 1, 9, -65530, 1, 9, -65529, 1, 6, -65528, 1, 2, -65527, 1, 2, -65526, 1, 2, -65525, 1, 2, -65524, 1, 2, -65523, 1, 5, -65522, 1, 9, -65521, 1, 9, -65520, 1, 9, -65519, 1, 9, -65518, 1, 9, -65517, 1, 9, -65516, 1, 9, -65515, 1, 11, 65535, 1, 131080, 0, 1, 131078, 1, 1, 196618, 2, 1, 196618, 3, 1, 196618, 4, 1, 196618, 5, 1, 196618, 6, 1, 196618, 7, 1, 196619, 13, 1, 196616, 14, 1, 196618, 15, 1, 196618, 16, 1, 196618, 17, 1, 196618, 18, 1, 196618, 19, 1, 196618, 20, 1, 131077, 21, 1, 65547, 131071, 1, 131080, 65536, 1, 65547, 65556, 1, 131080, 65557, 1, 65547, 196607, 1, 131080, 131072, 1, 65547, 131092, 1, 131080, 131093, 1, 65547, 262143, 1, 131080, 196608, 1, 65547, 196628, 1, 131080, 196629, 1, 65547, 327679, 1, 131080, 262144, 1, 65547, 262164, 1, 131080, 262165, 1, 65547, 393215, 1, 131080, 327680, 1, 65547, 327700, 1, 131080, 327701, 1, 65547, 458751, 1, 131080, 393216, 1, 65547, 393236, 1, 131080, 393237, 1, 65547, 524287, 1, 131080, 458752, 1, 65547, 458772, 1, 131080, 458773, 1, 65547, 589823, 1, 131080, 524288, 1, 65547, 524308, 1, 131080, 524309, 1, 65547, 655359, 1, 131080, 589824, 1, 65547, 589844, 1, 131080, 589845, 1, 65547, 720895, 1, 131080, 655360, 1, 65547, 655380, 1, 131080, 655381, 1, 65547, 786431, 1, 131080, 720896, 1, 65542, 720897, 1, 9, 720898, 1, 9, 720899, 1, 9, 720900, 1, 9, 720901, 1, 9, 720902, 1, 9, 720903, 1, 9, 720904, 1, 9, 720905, 1, 9, 720906, 1, 9, 720907, 1, 9, 720908, 1, 9, 720909, 1, 9, 720910, 1, 9, 720911, 1, 9, 720912, 1, 9, 720913, 1, 9, 720914, 1, 9, 720915, 1, 9, 720916, 1, 65541, 720917, 1, 65547, 851967, 1, 196616, 786432, 1, 196618, 786433, 1, 196618, 786434, 1, 196618, 786435, 1, 196618, 786436, 1, 196618, 786437, 1, 196618, 786438, 1, 196618, 786439, 1, 196618, 786440, 1, 196618, 786441, 1, 196618, 786442, 1, 196618, 786443, 1, 196618, 786444, 1, 196618, 786445, 1, 196618, 786446, 1, 196618, 786447, 1, 196618, 786448, 1, 196618, 786449, 1, 196618, 786450, 1, 196618, 786451, 1, 196618, 786452, 1, 196618, 786453, 1, 196619 )
+
+[node name="Grass" parent="." instance=ExtResource( 10 )]
+position = Vector2( 6.5, 4 )
+tile_data = PoolIntArray( 393217, 0, 8, 393218, 0, 11, 393234, 0, 8, 393235, 0, 11, 458753, 0, 65544, 458754, 0, 65542, 458755, 0, 11, 458769, 0, 8, 458770, 0, 65541, 458771, 0, 131083, 524289, 0, 65544, 524290, 0, 131081, 524291, 0, 65542, 524292, 0, 11, 524304, 0, 8, 524305, 0, 65541, 524306, 0, 131081, 524307, 0, 131083, 589825, 0, 65544, 589826, 0, 131081, 589827, 0, 131081, 589828, 0, 65542, 589829, 0, 10, 589830, 0, 11, 589838, 0, 8, 589839, 0, 10, 589840, 0, 65541, 589841, 0, 131081, 589842, 0, 131081, 589843, 0, 131083, 655361, 0, 196616, 655362, 0, 196617, 655363, 0, 196617, 655364, 0, 196617, 655365, 0, 196617, 655366, 0, 196619, 655374, 0, 196616, 655375, 0, 196617, 655376, 0, 196617, 655377, 0, 196617, 655378, 0, 196617, 655379, 0, 196619 )
+
+[node name="BallTiles" parent="." instance=ExtResource( 11 )]
+position = Vector2( 6.5, 4 )
+tile_data = PoolIntArray( 8, 0, 8, 9, 0, 10, 10, 0, 10, 11, 0, 10, 12, 0, 11, 65537, 0, 8, 65538, 0, 10, 65539, 0, 10, 65540, 0, 10, 65541, 0, 10, 65542, 0, 10, 65543, 0, 10, 65544, 0, 65541, 65545, 0, 131081, 65546, 0, 131081, 65547, 0, 131081, 65548, 0, 65542, 65549, 0, 10, 65550, 0, 10, 65551, 0, 10, 65552, 0, 10, 65553, 0, 10, 65554, 0, 10, 65555, 0, 11, 131073, 0, 65544, 131074, 0, 131081, 131075, 0, 131081, 131076, 0, 131081, 131077, 0, 131081, 131078, 0, 131081, 131079, 0, 131081, 131080, 0, 131081, 131081, 0, 131081, 131082, 0, 131081, 131083, 0, 131081, 131084, 0, 131081, 131085, 0, 131081, 131086, 0, 131081, 131087, 0, 131081, 131088, 0, 131081, 131089, 0, 131081, 131090, 0, 131081, 131091, 0, 131083, 196609, 0, 65544, 196610, 0, 131081, 196611, 0, 131081, 196612, 0, 131081, 196613, 0, 131081, 196614, 0, 131081, 196615, 0, 131081, 196616, 0, 131081, 196617, 0, 131081, 196618, 0, 131081, 196619, 0, 131081, 196620, 0, 131081, 196621, 0, 131081, 196622, 0, 131081, 196623, 0, 131081, 196624, 0, 131081, 196625, 0, 131081, 196626, 0, 131081, 196627, 0, 131083, 262145, 0, 196616, 262146, 0, 196617, 262147, 0, 196617, 262148, 0, 196617, 262149, 0, 196617, 262150, 0, 196618, 262151, 0, 196617, 262152, 0, 196617, 262153, 0, 196617, 262154, 0, 196617, 262155, 0, 196617, 262156, 0, 196617, 262157, 0, 196617, 262158, 0, 196618, 262159, 0, 196617, 262160, 0, 196617, 262161, 0, 196617, 262162, 0, 196617, 262163, 0, 196619, 327686, 0, 65536, 327694, 0, 65536, 393221, 0, 8, 393222, 0, 9, 393223, 0, 11, 393229, 0, 8, 393230, 0, 9, 393231, 0, 11, 458757, 0, 196616, 458758, 0, 196617, 458759, 0, 196619, 458765, 0, 196616, 458766, 0, 196617, 458767, 0, 196619, 524297, 0, 8, 524298, 0, 10, 524299, 0, 11, 589833, 0, 196616, 589834, 0, 196617, 589835, 0, 196619 )
+
+[node name="M" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -1.0
+margin_top = -4.0
+margin_right = -1.0
+margin_bottom = -4.0
+custom_constants/margin_top = 50
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="V" type="VBoxContainer" parent="V"]
-margin_top = 88.0
+[node name="Scorecard" parent="M" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 50.0
 margin_right = 1024.0
-margin_bottom = 210.0
-size_flags_vertical = 6
+margin_bottom = 50.0
+size_flags_vertical = 0
 
-[node name="CurrentLevel" type="Label" parent="V/V"]
-margin_left = 429.0
-margin_right = 595.0
-margin_bottom = 59.0
-size_flags_horizontal = 4
-custom_fonts/font = SubResource( 1 )
-text = "Level 0"
-
-[node name="Shots" type="Label" parent="V/V"]
-margin_left = 415.0
-margin_top = 63.0
-margin_right = 608.0
-margin_bottom = 122.0
-size_flags_horizontal = 4
-custom_fonts/font = SubResource( 2 )
-text = "Shots: 0"
-
-[node name="V2" type="VBoxContainer" parent="V"]
-margin_top = 302.0
-margin_right = 1024.0
-margin_bottom = 418.0
-size_flags_vertical = 2
-
-[node name="NextHole" type="Button" parent="V/V2"]
-margin_left = 449.0
-margin_right = 574.0
-margin_bottom = 36.0
+[node name="NextHole" type="Button" parent="."]
+margin_left = 647.0
+margin_top = 308.0
+margin_right = 759.0
+margin_bottom = 372.0
+rect_min_size = Vector2( 64, 64 )
 focus_mode = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 3 )
-text = "Next Hole"
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.392157, 0.392157, 0.392157, 1 )
+custom_colors/font_color_pressed = Color( 0.254902, 0.254902, 0.254902, 1 )
+text = "Next"
 flat = true
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+next_scene = "res://Scenes/UI/LevelSelect.tscn"
 
-[node name="Retry" type="Button" parent="V/V2"]
-margin_left = 474.0
-margin_top = 40.0
-margin_right = 550.0
-margin_bottom = 76.0
-focus_mode = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-custom_fonts/font = ExtResource( 3 )
+[node name="Retry" parent="." instance=ExtResource( 7 )]
+margin_left = 263.0
+margin_top = 308.0
+margin_right = 375.0
+margin_bottom = 372.0
+rect_min_size = Vector2( 112, 64 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.392157, 0.392157, 0.392157, 1 )
+custom_colors/font_color_pressed = Color( 0.254902, 0.254902, 0.254902, 1 )
 text = "Retry"
-flat = true
-script = ExtResource( 2 )
 
-[node name="Menu" type="Button" parent="V/V2"]
-margin_left = 476.0
-margin_top = 80.0
-margin_right = 547.0
-margin_bottom = 116.0
-focus_mode = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-custom_fonts/font = ExtResource( 3 )
+[node name="Menu" parent="." instance=ExtResource( 7 )]
+margin_left = 455.0
+margin_top = 404.0
+margin_right = 567.0
+margin_bottom = 468.0
+rect_min_size = Vector2( 112, 64 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.392157, 0.392157, 0.392157, 1 )
+custom_colors/font_color_pressed = Color( 0.254902, 0.254902, 0.254902, 1 )
 text = "Menu"
-flat = true
-script = ExtResource( 2 )
-next_scene = "res://Scenes/UI/MainMenu.tscn"
 
 [node name="WinSong" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
@@ -113,13 +117,23 @@ volume_db = 10.0
 autoplay = true
 bus = "Music"
 
-[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
-visible = true
-margin_right = 400.0
-margin_bottom = 140.0
-rect_min_size = Vector2( 400, 140 )
-window_title = ""
-dialog_text = "This Will Erase Your Scores!"
+[node name="Menu2" parent="." instance=ExtResource( 3 )]
+visible = false
+margin_left = 455.0
+margin_top = 404.0
+margin_right = 567.0
+margin_bottom = 468.0
+rect_min_size = Vector2( 112, 64 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.392157, 0.392157, 0.392157, 1 )
+custom_colors/font_color_pressed = Color( 0.254902, 0.254902, 0.254902, 1 )
+text = "Menu"
+next_scene = "res://Scenes/UI/MainMenu.tscn"
 
+[connection signal="pressed" from="NextHole" to="." method="_on_NextHole_pressed"]
+[connection signal="confirmed" from="Retry" to="." method="_on_Retry_confirmed"]
+[connection signal="confirmed" from="Menu" to="." method="_on_Menu_confirmed"]
 [connection signal="finished" from="WinSong" to="WinSong" method="queue_free"]
 [connection signal="tree_exited" from="WinSong" to="." method="_on_WinSong_tree_exited"]
