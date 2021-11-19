@@ -20,7 +20,7 @@ func _on_WinSong_tree_exited():
 
 
 func _on_Retry_confirmed():
-	Variables.load_level(Variables.current_course, Variables.current_level)
+	Variables.restart_level()
 
 
 func _on_Menu_confirmed():

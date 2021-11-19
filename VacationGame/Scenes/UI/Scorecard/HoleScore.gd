@@ -50,7 +50,7 @@ func init(h_n : int, p : int, s : int) -> void:
 #			5:
 #				score_label.add_color_override("font_color", penta_bogie)
 			_:
-				if par_score > 5:
+				if par_score > 0:
 					score_label.add_color_override("font_color", penta_bogie)
 				else:
 					score_label.add_color_override("font_color", albatross)

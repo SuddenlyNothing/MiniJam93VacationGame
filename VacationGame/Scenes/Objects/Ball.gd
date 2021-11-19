@@ -66,7 +66,7 @@ func _apply_friction(delta : float) -> void:
 func _move(delta : float) -> void:
 	detect_shotgun_collision.call_deferred("set_disabled", velocity != Vector2())
 	var collision := move_and_collide(velocity * delta)
-	if collision:
+	if velocity != Vector2() and collision:
 		bounce_sfx.play()
 		velocity = velocity.bounce(collision.normal)
 

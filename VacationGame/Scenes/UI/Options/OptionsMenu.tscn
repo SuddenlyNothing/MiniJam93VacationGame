@@ -124,10 +124,27 @@ size_flags_stretch_ratio = 2.0
 custom_constants/separation = 10
 alignment = 1
 
-[node name="Menu" parent="M/TabContainer/OptionSelect/M/V/V2" instance=ExtResource( 7 )]
-margin_left = 215.0
-margin_right = 373.0
+[node name="H" type="HBoxContainer" parent="M/TabContainer/OptionSelect/M/V/V2"]
+margin_right = 588.0
 margin_bottom = 69.0
+custom_constants/separation = 10
+alignment = 1
+
+[node name="Retry" parent="M/TabContainer/OptionSelect/M/V/V2/H" instance=ExtResource( 7 )]
+margin_left = 328.0
+margin_right = 428.0
+margin_bottom = 69.0
+size_flags_horizontal = 0
+size_flags_vertical = 6
+text = "Retry"
+flat = false
+
+[node name="Menu" parent="M/TabContainer/OptionSelect/M/V/V2/H" instance=ExtResource( 7 )]
+margin_left = 160.0
+margin_right = 318.0
+margin_bottom = 69.0
+size_flags_horizontal = 0
+size_flags_vertical = 6
 text = "Main Menu"
 flat = false
 
@@ -223,7 +240,8 @@ bus = "SFX"
 [connection signal="pressed" from="M/TabContainer/OptionSelect/M/V/V/Audio" to="." method="_on_Audio_pressed"]
 [connection signal="pressed" from="M/TabContainer/OptionSelect/M/V/V/Controls" to="." method="_on_Controls_pressed"]
 [connection signal="pressed" from="M/TabContainer/OptionSelect/M/V/V/ScreenSettings" to="." method="_on_ScreenSettings_pressed"]
-[connection signal="confirmed" from="M/TabContainer/OptionSelect/M/V/V2/Menu" to="." method="_on_Menu_confirmed"]
+[connection signal="confirmed" from="M/TabContainer/OptionSelect/M/V/V2/H/Retry" to="." method="_on_Retry_confirmed"]
+[connection signal="confirmed" from="M/TabContainer/OptionSelect/M/V/V2/H/Menu" to="." method="_on_Menu_confirmed"]
 [connection signal="pressed" from="M/TabContainer/OptionSelect/M/V/V2/Back" to="." method="_on_Back_pressed"]
 [connection signal="pressed" from="M/TabContainer/ChangeVolume/M/ChangeVolume/V/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="M/TabContainer/InputRemap/M/InputRemap/V/Button" to="." method="_on_Button_pressed"]

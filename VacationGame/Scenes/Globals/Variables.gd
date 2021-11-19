@@ -18,6 +18,7 @@ const easy_course = {
 		6,
 		3,
 		6,
+		8,
 	],
 }
 
@@ -63,3 +64,11 @@ func has_next_level() -> bool:
 	if self[current_course].par.size() <= current_level:
 		return false
 	return true
+
+
+func restart_level() -> void:
+	load_level(current_course, current_level)
+
+
+func get_level_par() -> int:
+	return self[current_course].par[current_level - 1]

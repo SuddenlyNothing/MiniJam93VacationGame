@@ -24,11 +24,6 @@ func _ready() -> void:
 	get_tree().call_group("needs_ball", "set_ball", ball)
 
 
-#func _process(delta : float) -> void:
-#	if Input.is_action_just_pressed("restart"):
-#		call_deferred("spawn_player")
-
-
 func _on_unwinnable() -> void:
 	if death_timer.is_inside_tree():
 		death_timer.start()

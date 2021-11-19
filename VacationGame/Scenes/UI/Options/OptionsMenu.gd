@@ -5,7 +5,8 @@ export(String, FILE, "*.tscn") var menu_scene
 onready var tab_container := $M/TabContainer
 onready var mouse_capture := $MouseCapture
 onready var press_sfx := $PressSFX
-onready var menu_button := $M/TabContainer/OptionSelect/M/V/V2/Menu
+onready var menu_button := $M/TabContainer/OptionSelect/M/V/V2/H/Menu
+onready var retry_button := $M/TabContainer/OptionSelect/M/V/V2/H/Retry
 var active = false setget set_active
 
 var not_level_scenes := {
@@ -49,8 +50,10 @@ func set_active(val) -> void:
 	if val:
 		if Global.current_scene.filename in not_level_scenes:
 			menu_button.hide()
+			retry_button.hide()
 	else:
 		menu_button.show()
+		retry_button.show()
 	tab_container.current_tab = 0
 	active = val
 	$M.visible = val
@@ -60,4 +63,9 @@ func set_active(val) -> void:
 # Closes option menu.
 func _on_Menu_confirmed():
 	Global.goto_scene(menu_scene)
+	set_active(false)
+
+
+func _on_Retry_confirmed():
+	Variables.restart_level()
 	set_active(false)
